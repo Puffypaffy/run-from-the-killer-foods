@@ -236,6 +236,10 @@ info.onCountdownEnd(function () {
     game.gameOver(true)
     game.setGameOverEffect(true, effects.confetti)
 })
+controller.combos.attachCombo("ududlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlrlr", function () {
+    info.setLife(99999)
+    info.setScore(999999)
+})
 controller.combos.attachCombo("llrrlrla", function () {
     info.setLife(250)
     info.setScore(250)
