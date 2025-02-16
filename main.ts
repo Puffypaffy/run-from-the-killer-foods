@@ -5,6 +5,13 @@
  * 
  *      2
  */
+/**
+ * 0
+ * 
+ * 3        1
+ * 
+ *      2
+ */
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setImage(img`
         . . . . . . e e c c e e . . . . 
@@ -232,7 +239,13 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         `)
 })
+/**
+ * Shoot right: A
+ * 
+ * Shoot left: B
+ */
 info.onCountdownEnd(function () {
+    music.stopAllSounds()
     game.gameOver(true)
     game.setGameOverEffect(true, effects.confetti)
 })
@@ -292,6 +305,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     facing = 0
 })
 info.onLifeZero(function () {
+    music.stopAllSounds()
     game.gameOver(false)
     game.setGameOverEffect(false, effects.melt)
 })
@@ -594,6 +608,7 @@ let mySprite: Sprite = null
 info.setLife(3)
 scene.setBackgroundColor(2)
 game.splash("Run From the Killer Foods.")
+music.play(music.createSong(hex`0078000408020108001c000e050046006603320000040a002d0000006400140001320002010002420000000400012c08000c00012a10001400012718001c00012a20002400012424002800012a28002c00012a2c003000012730003400012c38003c0001253c0040000129`), music.PlaybackMode.LoopingInBackground)
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999111111111119999999999999999999999999999999999999991111999999999999999999999999999999999999999999111111111111
